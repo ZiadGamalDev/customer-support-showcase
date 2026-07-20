@@ -1,2 +1,15 @@
+# AI Agent and Local context
 .notes/
 .cursor/
+.claude/
+.gemini/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Project Assets
+!screenshots/
+!docs/
+!LICENSE
+!README.md

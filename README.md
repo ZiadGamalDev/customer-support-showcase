@@ -1,115 +1,53 @@
-# Customer Support System 🧠💬
+# Customer Support System
 
-A large-scale, real-time **Customer Support System** integrated with a simple **E-Commerce** platform. This was developed as our **ITI Graduation Project** (2025) with 7 fully connected apps using:
+A large-scale, real-time Customer Support System integrated with a sophisticated E-Commerce infrastructure. Developed as an ITI Graduation Project in 2025, this ecosystem consists of 7 fully connected applications built with Node.js, MongoDB, Socket.IO, React, Angular, and Express.
 
-> **Node.js**, **MongoDB**, **Socket.IO**, **React**, **Angular**, and **Express**.
+## System Architecture
 
----
+The ecosystem comprises two primary backend services and five frontend applications, creating a complete end-to-end support environment.
 
-## 📽️ LinkedIn Showcase
+| Component           | Description                                           | Technologies                |
+| ------------------- | ----------------------------------------------------- | --------------------------- |
+| **Support API**     | Core engine for auth, routing, and real-time sockets. | Node.js, Express, Socket.IO |
+| **E-commerce API**  | Simulates customer data and activity logs.            | Node.js, Express, MongoDB   |
+| **Agent Dashboard** | Interface for agents to handle live tickets.          | React, Socket.IO            |
+| **Admin Panel**     | Over-arching management for agents and chats.         | Angular                     |
+| **Storefront**      | Customer-facing e-commerce interface.                 | React, Tailwind CSS         |
+| **Chat Widget**     | Real-time support interface for customers.            | Angular                     |
+| **Shop Admin**      | Management of products and categories.                | React                       |
 
-🎬 Watch the full walkthrough of the live system here:  
-🔗 [LinkedIn Post (Video Demo)](https://www.linkedin.com/posts/ziad-gamal_nodejs-socketio-mongodb-activity-7334142892787085313-T0eT)
+## Technical Capabilities
 
----
+- **Real-Time Infrastructure**: Sub-100ms message delivery using a robust Socket.IO implementation.
+- **Intelligent Routing**: Automated ticket assignment to the least busy agent, ensuring balanced workload distribution.
+- **State Management**: Comprehensive tracking of agent availability (Online, Busy, Away) and ticket lifecycle (New, Open, Pending, Resolved).
+- **Production-Ready Auth**: JWT-based authentication with email verification and role-based access controls.
 
-## 🌐 Live Deployments
+## Business Impact
 
-| App | Link |
-|-----|------|
-| **Agent Dashboard** | [customer-support-agent-react](https://customer-support-agent-react.vercel.app/) |
-| **Admin Dashboard** | [customer-support-admin-angular](https://customer-support-admin-angular.vercel.app/) |
-| **E-Commerce Store** | [ecommerce-react](https://ecommerce-react-two-pi.vercel.app/) |
-| **E-Commerce Admin Panel** | [ecommerce-admin-react](https://ecommerce-admin-react.vercel.app/) |
+The system demonstrates a scalable solution for high-volume customer interaction. By automating ticket routing and providing real-time oversight, it significantly reduces response times and improves agent efficiency. The modular design allows for independent scaling of each component based on demand.
 
----
+## Live Demonstrations
 
-## 🔑 Test Users
+| Application          | Production Link                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| **Agent Dashboard**  | [customer-support-agent-react](https://customer-support-agent-react.vercel.app/)     |
+| **Admin Dashboard**  | [customer-support-admin-angular](https://customer-support-admin-angular.vercel.app/) |
+| **E-Commerce Store** | [ecommerce-react-two-pi.vercel.app](https://ecommerce-react-two-pi.vercel.app/)      |
 
-> **Note**: Password for all users is `123456zZ`
+## Documentation
 
-### Customer Support Platform
-| Email | Role | Application |
-|-------|------|-------------|
-| ziad.gamal.tech@gmail.com | Admin | [Customer Support Admin](https://customer-support-admin-angular.vercel.app/) |
-| sarakhaled@example.com | Agent | [Customer Support Agent](https://customer-support-agent-react.vercel.app/) |
+Comprehensive technical documentation is available in the `docs/` directory:
+- [System Architecture](docs/PROJECT.md)
+- [Key Features Guide](docs/key-features.pdf)
 
-### E-commerce Platform
-| Email | Role | Application |
-|-------|------|-------------|
-| ahmedmostafa@example.com | Customer | [E-commerce Store](https://ecommerce-react-two-pi.vercel.app/) |
-| sondosomar@example.com | Admin | [E-commerce Admin](https://ecommerce-admin-react.vercel.app/) |
+## Contributors
 
----
+Developed by a dedicated team of 5 developers. Main architectural and backend development by [Ziad Gamal](https://github.com/ZiadGamalDev).
 
-## 🧩 System Modules (7 Repos)
+## License
 
-| App | Description | GitHub |
-|-----|-------------|--------|
-| **Customer Support API** | Backend logic: authentication, real-time socket handling, agent/chat tracking, auto-reassigning | [customer-support-node](https://github.com/ZiadGamalDev/customer-support-node) |
-| **Customer Chat App** | Angular app embedded in e-commerce site. Customers start live chat from frontend | [ecommerce-chat-angular](https://github.com/ZiadGamalDev/ecommerce-chat-angular) |
-| **Agent Dashboard** | React dashboard where support agents handle live chats, statuses, and reassign tickets | [customer-support-agent-react](https://github.com/ZiadGamalDev/customer-support-agent-react) |
-| **Admin Dashboard** | Angular admin panel to manage users, agents, and chat history | [customer-support-admin-angular](https://github.com/ZiadGamalDev/customer-support-admin-angular) |
-| **E-Commerce API** | Simulated e-commerce backend to support frontend & provide customer data | [ecommerce-node](https://github.com/ZiadGamalDev/ecommerce-node) |
-| **E-Commerce Web** | Simple React frontend (products, cart, orders) with embedded customer chat | [ecommerce-react](https://github.com/ZiadGamalDev/ecommerce-react) |
-| **E-Commerce Admin Panel** | React admin panel to manage products/categories for testing | [ecommerce-admin-react](https://github.com/ZiadGamalDev/ecommerce-admin-react) |
+This project is licensed under the MIT License.
 
 ---
-
-## 📚 Documentation
-
-- [`docs/Business-Model.pdf`](./docs/Business-Model.pdf) – Covers app roles, features, and workflow
-- [`docs/ITI-Graduation-Project-Discussion.pdf`](./docs/ITI-Graduation-Project-Discussion.pdf) – System architecture and implementation logic
-
----
-
-## 🧠 Highlights
-
-- **Real-time Chat System** with Socket.IO
-- **Dynamic Agent Assignment** with load balancing
-- **Agent Statuses**: available, away, busy
-- **Chat Ticket Management**: new, open, pending, resolved
-- **Email Verification & Role Approval** system
-- **MongoDB Tracking Logs** for chat & agent history
-- Modular API structure with clean services, helpers, middleware, enums
-
----
-
-## 👨‍💻 Tech Stack
-
-| Layer | Tech |
-|-------|------|
-| Backend | Node.js, Express, MongoDB, Mongoose |
-| Real-time | Socket.IO |
-| Auth | JWT, Email Verification |
-| Frontend | React, Angular |
-| Styling | Bootstrap, SCSS |
-| Deployment | Railway (API), Vercel (Web) |
-
----
-
-## 🤝 Contributors
-
-We were a team of 5 developers:
-
-- [Ziad Gamal](https://github.com/ZiadGamalDev)
-- [Ahmed Mostafa](https://github.com/3b3zeem)
-- [Sara Khaled](https://github.com/sarah5aled152)
-- [Sondos Omar](https://github.com/sondosomarr)
-- [Ahmed Farag](https://github.com/iahmedfarag)
-
-Repo contributions are distributed across our GitHub profiles, with main development logic by **Ziad Gamal**.
-
----
-
-## ✅ Project Status
-
-- ✅ Fully deployed and tested
-- 🛠️ Used as a real-world graduation project
-- 📦 Open for learning, forking, or extending
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+[Contact & Portfolio](https://ziadgamal.com)
