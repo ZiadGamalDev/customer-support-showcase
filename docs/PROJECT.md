@@ -1,36 +1,33 @@
 # Customer Support System - Project Overview
 
-The Customer Support System is a sophisticated micro-services ecosystem comprising seven interconnected applications. Developed as an ITI Graduation Project in 2025, it simulates a real-world infrastructure where e-commerce platforms integrate a live support widget that connects customers with dedicated support agents in real-time.
+A micro-services ecosystem of seven interconnected applications. Developed as an ITI Graduation Project in 2025 by a 5-person team, it simulates a setup where an e-commerce storefront embeds a live support widget that connects customers to support agents in real time.
 
 ## System Architecture
 
-The ecosystem is built on a modular architecture to ensure scalability and separation of concerns. It features two core APIs and five specialized frontends.
+Two backend APIs and five specialized frontends.
 
 ### Core Components
 
-1.  **Customer Support API (Node.js/Express)**: 
-    - The central engine handling authentication, ticket routing, and real-time communication.
-    - Implements intelligent agent assignment logic based on availability and load.
-2.  **E-commerce API (Node.js/Express)**:
-    - Simulates product management, user activity logging, and order processing.
-3.  **Agent Dashboard (React)**:
-    - Specialized tool for support agents to manage active chats, update ticket statuses, and toggle availability.
-4.  **Admin Dashboard (Angular)**:
-    - High-level oversight for managing users, monitoring agent performance, and reviewing chat history.
-5.  **E-commerce Storefront (React)**:
-    - Consumer-facing application with integrated product browsing and shopping cart features.
-6.  **Customer Chat Widget (Angular)**:
-    - An embedded widget for the storefront that enables real-time communication with the support team.
-7.  **E-commerce Admin Panel (React)**:
-    - Management interface for products, categories, and orders within the e-commerce simulation.
+1. **Customer Support API (Node.js/Express)**:
+   - The central engine handling authentication, ticket routing, and real-time communication.
+   - Agent assignment: picks the first AVAILABLE agent (unsorted), falling back to the first BUSY agent only if none are free under max load.
+2. **E-commerce API (Node.js/Express)**:
+   - Product management, user accounts, and order processing — demo data, not a live store.
+3. **Agent Dashboard (React)**:
+   - Agents manage active chats, update ticket statuses, and toggle availability.
+4. **Admin Dashboard (Angular)**:
+   - Manage users, monitor agent activity, and review chat history.
+5. **E-commerce Storefront (React)**:
+   - Product browsing and shopping cart.
+6. **Customer Chat Widget (Angular)**:
+   - Embedded widget for the storefront, real-time communication with support.
+7. **E-commerce Admin Panel (React)**:
+   - Product, category, and order management for the demo store.
 
-## Technical Highlights
+## Technical Notes (verified against the code, 2026-10-13)
 
-- **Real-time Communication**: Powered by Socket.IO with latency-optimized broadcasting.
-- **Intelligent Routing**: Dynamic load balancing ensures tickets are assigned to the "least busy" available agent.
-- **State Management**: Robust tracking of Agent Status (Online, Busy, Away) and Ticket Status (New, Open, Pending, Resolved).
-- **Authentication**: Secure JWT-based auth with email verification and role-based access control (RBAC).
-
-## Scalability and Performance
-
-The system is designed to handle high-traffic environments through asynchronous processing and non-blocking I/O provided by the Node.js runtime. MongoDB provides a flexible schema for logging extensive activity and chat history, enabling detailed future analytics.
+- **Real-time communication**: Socket.IO, 12 distinct event types. No latency benchmark exists in either repo, so no number is claimed.
+- **Agent assignment**: not a sorted/"least busy" algorithm — see Core Components above.
+- **State management**: agent status (Online, Busy, Away) and ticket status (New, Open, Pending, Resolved).
+- **Authentication**: JWT-based, with email verification and role checks on both backends (support: admin/agent/customer; e-commerce: admin/user).
+- **Deployment**: single PM2 fork instance per app behind Nginx — no horizontal scaling.
